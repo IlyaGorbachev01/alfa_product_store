@@ -25,7 +25,7 @@ CART_ITEM_VERBOSE_NAME_PLURAL = 'Элементы корзины'
 
 # Человекочитаемые имена полей
 NAME_VERBOSE_NAME = 'Наименование'
-SLUG_VERBOSE_NAME = 'Slug'
+SLUG_VERBOSE_NAME = 'Слаг'
 IMAGE_VERBOSE_NAME = 'Изображение'
 CATEGORY_VERBOSE_NAME_FIELD = 'Категория'
 SUBCATEGORY_VERBOSE_NAME_FIELD = 'Подкатегория'

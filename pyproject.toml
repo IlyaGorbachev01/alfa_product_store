@@ -64,5 +64,9 @@ skip-magic-trailing-comma = false
 
 line-ending = "auto"
 
+[tool.ruff.isort]
+# Определить собственные модули
+known-local-folder = ["shop", "api"]
+
 [tool.mypy]
 disable_error_code = "import-untyped"
