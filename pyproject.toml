@@ -63,3 +63,6 @@ indent-style = "space"  # Символ для отступа
 skip-magic-trailing-comma = false
 
 line-ending = "auto"
+
+[tool.mypy]
+disable_error_code = "import-untyped"
