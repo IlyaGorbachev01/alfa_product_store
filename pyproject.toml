@@ -1,0 +1,64 @@
+[project]
+name = "alfa-product-store"
+version = "0.1.0"
+description = "Тестовое задание для компании Экосистема Альфа."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=6.0.2",
+    "djangorestframework>=3.16.1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.0",
+]
+
+[tool.ruff]
+exclude = [
+    "tests/",
+    ".venv/",
+]
+
+line-length = 79  # Длина строки
+indent-width = 4  # Ширина отступа
+
+target-version = "py312"
+
+[tool.ruff.lint]
+# Правила, которые должен применять линтер
+select = [
+    "E",  # pycodestyle: Error
+    "W",  # pycodestyle: Warning
+    "F",  # Pyflakes
+    "I",  # isort
+    "N",  # pep8-naming
+    "UP",  # pyupgrade
+    "D",  # pydocstyle
+]
+# Игнорирование конкретных предупреждений линтера
+ignore = [
+    "D100",  # Отсутствует документация в публичном модуле
+    "D107",  # Отсутствует документационная строка в __init__
+    "D205",  # Пустая строка между кратким описанием и описанием
+    "D213",  # Краткое описание документа в нескольких строках должно начинаться со второй строки
+    "D400",  # Первая строка должна заканчиваться точкой
+    "D401",  # Первая строка документации в повелительном наклонении
+    "D212",  # Сводная строка должна располагаться на первой физической строке документа
+]
+
+# Ошибки, которые могут быть исправлены автоматически
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.format]
+quote-style = "single"  # Стиль кавычек
+
+indent-style = "space"  # Символ для отступа
+
+skip-magic-trailing-comma = false
+
+line-ending = "auto"
