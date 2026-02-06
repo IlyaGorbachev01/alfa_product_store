@@ -19,6 +19,7 @@ dev = [
 exclude = [
     "tests/",
     ".venv/",
+    "settings.py",
 ]
 
 line-length = 79  # Длина строки

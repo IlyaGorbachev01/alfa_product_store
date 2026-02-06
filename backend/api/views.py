@@ -2,7 +2,6 @@ from django.conf import settings
 from django.core.cache import cache
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
-from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -23,7 +22,6 @@ class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Category.objects.prefetch_related('subcategories')
     serializer_class = CategorySerializer
     permission_classes = [AllowAny]
-    pagination_class = PageNumberPagination
 
     def list(self, request: Request, *args, **kwargs) -> Response:
         """Получение списка всех категорий с вложенными подкатегориями."""
@@ -46,7 +44,6 @@ class ProductViewSet(viewsets.ReadOnlyModelViewSet):
     )
     serializer_class = ProductSerializer
     permission_classes = [AllowAny]
-    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         """Фильтрация продуктов по категории и подкатегории."""
@@ -71,7 +68,6 @@ class CartViewSet(viewsets.ModelViewSet):
     permission_classes = [
         IsAuthenticated
     ]
-    pagination_class = PageNumberPagination
 
     def get_queryset(self):
         """Получение элементов корзины текущего пользователя."""
