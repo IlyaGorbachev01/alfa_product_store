@@ -1,11 +1,15 @@
+from decimal import Decimal
+
 from django.conf import settings
 from django.core.cache import cache
+from django.db.models import QuerySet
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 
+from api.permissions import IsOwner
 from api.serializers import (
     CartItemDetailSerializer,
     CartItemSerializer,
@@ -45,9 +49,9 @@ class ProductViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ProductSerializer
     permission_classes = [AllowAny]
 
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet:
         """Фильтрация продуктов по категории и подкатегории."""
-        queryset = super().get_queryset()
+        queryset: QuerySet = super().get_queryset()
         category_slug = self.request.query_params.get('category', None)
         subcategory_slug = self.request.query_params.get('subcategory', None)
 
@@ -65,25 +69,19 @@ class CartViewSet(viewsets.ModelViewSet):
     """ViewSet для операций с корзиной."""
 
     serializer_class = CartItemSerializer
-    permission_classes = [
-        IsAuthenticated
-    ]
+    permission_classes = [IsAuthenticated, IsOwner]
 
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet:
         """Получение элементов корзины текущего пользователя."""
         return CartItem.objects.filter(user=self.request.user).select_related(
             'product'
         )
 
-    def get_permissions(self):
-        """Настройка разрешений для разных действий."""
-        if self.action == 'clear_cart':
-            permission_classes = [IsAuthenticated]
-        else:
-            permission_classes = [IsAuthenticated]
-        return [permission() for permission in permission_classes]
-
-    def get_serializer_class(self):
+    def get_serializer_class(
+        self,
+    ) -> type[
+        CartItemSerializer | CartItemDetailSerializer | CartSummarySerializer
+    ]:
         """Выбор сериализатора в зависимости от действия."""
         if self.action == 'list':
             return CartItemDetailSerializer
@@ -94,11 +92,11 @@ class CartViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['get'], url_path='summary')
     def summary(self, request: Request) -> Response:
         """Получение итоговой информации о корзине."""
-        cart_items = self.get_queryset()
-        total_items = sum(item.quantity for item in cart_items)
-        total_price = sum(item.total_price for item in cart_items)
+        cart_items: QuerySet = self.get_queryset()
+        total_items: int = sum(item.quantity for item in cart_items)
+        total_price: Decimal = sum(item.total_price for item in cart_items)
 
-        data = {
+        data: dict = {
             'items': CartItemDetailSerializer(
                 cart_items, many=True, context={'request': request}
             ).data,
