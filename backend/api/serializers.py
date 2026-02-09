@@ -97,6 +97,14 @@ class CartItemSerializer(serializers.ModelSerializer):
             )
         return value
 
+    def create(self, validated_data):
+        """Автоматически установить пользователя."""
+        # Получаем пользователя из контекста запроса
+        user = self.context['request'].user
+        # Создаем объект CartItem с указанием пользователя
+        cart_item = CartItem.objects.create(user=user, **validated_data)
+        return cart_item
+
 
 class CartItemDetailSerializer(serializers.ModelSerializer):
     """Сериализатор для детального отображения элемента корзины."""

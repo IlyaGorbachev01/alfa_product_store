@@ -128,6 +128,14 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Кэширование
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+CACHE_TIMEOUT = 60 * 15  # 15 минут
+
 # Медиа и статика
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'  # корень проекта / media/
