@@ -91,6 +91,10 @@ python manage.py runserver
 ```
 backend/                # Django приложение
 ├── api/                  # API слой
+│   ├── tests/              # Тесты для API
+│   │   ├── test_api.py         # Тесты для основных операций с корзиной
+│   │   ├── test_cart_post.py   # Дополнительные тесты для операций с корзиной
+│   │   └── test_views.py       # Тесты для публичных API
 │   ├── constants.py        # Константы для API
 │   ├── permissions.py      # Кастомные разрешения
 │   ├── serializers.py      # Сериализаторы
@@ -104,6 +108,11 @@ backend/                # Django приложение
 │   ├── admin.py            # Настройки админ-панели
 │   ├── constants.py        # Константы для моделей
 │   └── models.py           # Модели: Category, SubCategory, Product, CartItem
+├── fixtures/             # Фикстуры
+│   ├── users.json
+│   ├── categories.json
+│   ├── subcategories.json
+│   ├── products.json
 └── manage.py
 ```
 
