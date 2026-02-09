@@ -84,6 +84,7 @@ python manage.py runserver
 backend/                # Django приложение
 ├── api/                  # API слой
 │   ├── constants.py        # Константы для API
+│   ├── permissions.py      # Кастомные разрешения
 │   ├── serializers.py      # Сериализаторы
 │   ├── urls.py             # URL-маршруты API
 │   └── views.py            # ViewSets для API
