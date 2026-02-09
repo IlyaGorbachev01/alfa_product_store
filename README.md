@@ -45,35 +45,35 @@ git clone https://github.com/your-repo/alfa_product_store.git
 cd alfa_product_store
 ```
 
-2. Создайте виртуальное окружение и активируйте его:
+2. Установите uv (если еще не установлен):
 ```bash
-python -m venv venv
-source venv/bin/activate  # для Linux/Mac
-# или
-venv\Scripts\activate  # для Windows
+pip install uv
 ```
 
-3. Установите зависимости:
-```bash
-pip install -r requirements.txt
-```
-или используя uv/pip-tools:
+3. Установите зависимости (автоматически создаст виртуальное окружение):
 ```bash
 uv sync --dev
 ```
 
-4. Выполните миграции:
+4. Активируйте виртуальное окружение:
+```bash
+source .venv/bin/activate  # для Linux/Mac
+# или
+.venv\Scripts\activate  # для Windows
+```
+
+5. Выполните миграции:
 ```bash
 cd backend
 python manage.py migrate
 ```
 
-5. Создайте суперпользователя:
+6. Создайте суперпользователя:
 ```bash
 python manage.py createsuperuser
 ```
 
-6. Запустите сервер разработки:
+7. Запустите сервер разработки:
 ```bash
 python manage.py runserver
 ```
