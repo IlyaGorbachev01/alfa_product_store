@@ -1,0 +1,107 @@
+[
+  {
+    "model": "shop.Product",
+    "pk": 1,
+    "fields": {
+      "name": "Бананы",
+      "slug": "bananas",
+      "subcategory": 1,
+      "price": "45.50",
+      "image_small": "products/small/bananas.jpg",
+      "image_medium": "products/medium/bananas.jpg",
+      "image_large": "products/large/bananas.jpg",
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.Product",
+    "pk": 2,
+    "fields": {
+      "name": "Манго",
+      "slug": "mango",
+      "subcategory": 1,
+      "price": "120.00",
+      "image_small": "products/small/mango.jpg",
+      "image_medium": "products/medium/mango.jpg",
+      "image_large": "products/large/mango.jpg",
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.Product",
+    "pk": 3,
+    "fields": {
+      "name": "Яблоки",
+      "slug": "apples",
+      "subcategory": 2,
+      "price": "75.00",
+      "image_small": "products/small/apples.jpg",
+      "image_medium": "products/medium/apples.jpg",
+      "image_large": "products/large/apples.jpg",
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.Product",
+    "pk": 4,
+    "fields": {
+      "name": "Картофель",
+      "slug": "potatoes",
+      "subcategory": 3,
+      "price": "35.00",
+      "image_small": "products/small/potatoes.jpg",
+      "image_medium": "products/medium/potatoes.jpg",
+      "image_large": "products/large/potatoes.jpg",
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.Product",
+    "pk": 5,
+    "fields": {
+      "name": "Морковь",
+      "slug": "carrots",
+      "subcategory": 3,
+      "price": "40.00",
+      "image_small": "products/small/carrots.jpg",
+      "image_medium": "products/medium/carrots.jpg",
+      "image_large": "products/large/carrots.jpg",
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.Product",
+    "pk": 6,
+    "fields": {
+      "name": "Шпинат",
+      "slug": "spinach",
+      "subcategory": 4,
+      "price": "85.00",
+      "image_small": "products/small/spinach.jpg",
+      "image_medium": "products/medium/spinach.jpg",
+      "image_large": "products/large/spinach.jpg",
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.Product",
+    "pk": 7,
+    "fields": {
+      "name": "Молоко",
+      "slug": "milk",
+      "subcategory": 5,
+      "price": "80.00",
+      "image_small": "products/small/milk.jpg",
+      "image_medium": "products/medium/milk.jpg",
+      "image_large": "products/large/milk.jpg",
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  }
+]

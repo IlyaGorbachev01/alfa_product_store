@@ -35,3 +35,6 @@ frontend/.env.local
 # OS
 .DS_Store
 Thumbs.db
+
+# DB
+db.sqlite3

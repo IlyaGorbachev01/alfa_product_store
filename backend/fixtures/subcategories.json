@@ -1,0 +1,62 @@
+[
+  {
+    "model": "shop.SubCategory",
+    "pk": 1,
+    "fields": {
+      "name": "Тропические фрукты",
+      "slug": "tropical-fruits",
+      "image": "subcategories/tropical_fruits.jpg",
+      "category": 1,
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.SubCategory",
+    "pk": 2,
+    "fields": {
+      "name": "Сезонные фрукты",
+      "slug": "seasonal-fruits",
+      "image": "subcategories/seasonal_fruits.jpg",
+      "category": 1,
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.SubCategory",
+    "pk": 3,
+    "fields": {
+      "name": "Корнеплоды",
+      "slug": "root-vegetables",
+      "image": "subcategories/root_vegetables.jpg",
+      "category": 2,
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.SubCategory",
+    "pk": 4,
+    "fields": {
+      "name": "Листовые овощи",
+      "slug": "leafy-vegetables",
+      "image": "subcategories/leafy_vegetables.jpg",
+      "category": 2,
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "shop.SubCategory",
+    "pk": 5,
+    "fields": {
+      "name": "Молоко и молочные напитки",
+      "slug": "milk-products",
+      "image": "subcategories/milk_products.jpg",
+      "category": 3,
+      "created_at": "2023-01-01T00:00:00Z",
+      "updated_at": "2023-01-01T00:00:00Z"
+    }
+  }
+]
