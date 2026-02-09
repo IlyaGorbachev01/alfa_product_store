@@ -73,7 +73,15 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-7. Запустите сервер разработки:
+7. (Опционально) Загрузите данные из фикстур:
+```bash
+python manage.py loaddata users.json
+python manage.py loaddata categories.json
+python manage.py loaddata subcategories.json
+python manage.py loaddata products.json
+```
+
+8. Запустите сервер разработки:
 ```bash
 python manage.py runserver
 ```
@@ -102,24 +110,24 @@ backend/                # Django приложение
 ## API Endpoints
 
 ### Категории
-- `GET /api/categories/` - получить все категории с подкатегориями (публичный)
+- `GET /api/categories/` - получить список категорий с подкатегориями (публичный)
+- `GET /api/categories/{id}` - получить категорию с подкатегориями (публичный)
 
 ### Продукты
-- `GET /api/products/` - получить все продукты (публичный)
-- `GET /api/products/?category={slug}` - фильтрация по категории
-- `GET /api/products/?subcategory={slug}` - фильтрация по подкатегории
+- `GET /api/products/` - получить список продуктов (публичный)
+- `GET /api/products/{id}` - получить продукт (публичный)
 
 ### Корзина
 - `GET /api/cart/` - просмотр корзины (только владелец)
 - `POST /api/cart/` - добавить товар в корзину (только владелец)
-- `PUT /api/cart/{id}/` - изменить количество товара (только владелец)
+- `PUT /api/cart/{id}/` - изменить товар в корзине (только владелец)
+- `PATCH /api/cart/{id}/` - частично изменить товар в корзине (только владелец)
 - `DELETE /api/cart/{id}/` - удалить товар из корзины (только владелец)
 - `GET /api/cart/summary/` - получить итоговую информацию о корзине (только владелец)
 - `POST /api/cart/clear/` - очистить корзину (только владелец)
 
 ### Авторизация
 - `POST /api/auth/token/` - получить токен
-- `POST /api/auth/token/refresh/` - обновить токен
 
 ## Админ-панель
 
@@ -147,9 +155,25 @@ backend/                # Django приложение
 
 ## Тестирование
 
-Для запуска тестов:
+Для запуска всех тестов:
 ```bash
 python manage.py test
+```
+
+Для запуска конкретного теста:
+```bash
+python manage.py test api.tests.test_api
+```
+
+Для запуска тестов с подробным выводом:
+```bash
+python manage.py test --verbosity=2
+```
+
+Для запуска тестов с покрытием кода:
+```bash
+coverage run --source='.' manage.py test
+coverage report
 ```
 
 ## Swagger документация
